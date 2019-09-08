@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center" id="p5Canvas"></div>
+  <div class="d-flex justify-content-center" id="p5-canvas-mystify"></div>
 </template>
 
 <script>
@@ -9,6 +9,22 @@ import P5 from 'p5';
 export default {
   name: 'Canvas',
   props: {
+    id: {
+      type: String,
+      default: 'p5-canvas-mystify',
+    },
+    width: {
+      type: Number,
+      default: 500,
+    },
+    height: {
+      type: Number,
+      default: 500,
+    },
+    lines: {
+      type: Number,
+      default: 10,
+    },
     bg: {
       type: String,
       default: '#000000',
@@ -16,10 +32,6 @@ export default {
     color: {
       type: String,
       default: '#009600', // Green
-    },
-    horizon: {
-      type: Number,
-      default: 0,
     },
     thickness: {
       type: Number,
@@ -40,6 +52,9 @@ export default {
     }
     const config = {
       BG: this.bg,
+      WIDTH: this.width,
+      HEIGHT: this.height,
+      LINES: this.lines,
       COLOR: this.color,
       HORIZON: this.horizon,
       THICKNESS: this.thickness,
@@ -48,7 +63,6 @@ export default {
     let sketch = new P5(script);
     sketch.config = config;
   },
-
 }
 
 </script>

@@ -63,11 +63,12 @@ const script = (sketch) => {
       ls.add(Line(p.x1*window.innerWidth/10, sketch.config['HORIZON'], p.x2*window.innerWidth/10, window.innerHeight, 0, undefined));
     });
   };
+
   sketch.draw = () => {
 
     sketch.background(sketch.config['BG']);
-
     const frame = sketch.frameCount;
+
     if(frame % 30 === 0){ // Add a new horizontal line every 30 frames
       ls.add(Line(0, sketch.config['HORIZON'], window.innerWidth, sketch.config['HORIZON'], sketch.config['SPEED'], 400));
     }
@@ -84,9 +85,4 @@ const script = (sketch) => {
 
 };
 
-const run = (config) => {
-  let sketch = new P5(script);
-  sketch.config = config;
-}
-
-export default run;
+export default script;

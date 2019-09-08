@@ -1,14 +1,14 @@
 <template>
-  <Canvas />
+  <Mystify />
 </template>
 
 <script>
-import Canvas from './components/Canvas/Canvas.vue'
+import Mystify from '../stories/Mystify/Index.vue';
 
 export default {
   name: 'app',
   components: {
-    Canvas
+    Mystify,
   }
 }
 </script>
