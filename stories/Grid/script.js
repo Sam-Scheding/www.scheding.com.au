@@ -1,15 +1,13 @@
 import P5 from 'p5';
 
 const script = (sketch) => {
-
-
-  let config = {
-    BG: '#000000',
-    COLOR: '#009600',
+  !!sketch.config ? sketch.config : sketch.config = {
+    BG: 'pink',
+    COLOR: '#000000',
     HORIZON: 0,
     THICKNESS: 3,
     SPEED: 2,
-  }
+  };
 
   let ls;
 
@@ -43,7 +41,7 @@ const script = (sketch) => {
 
   sketch.setup = () => {
     sketch.createCanvas(window.innerWidth, window.innerHeight);
-    sketch.strokeWeight(config['THICKNESS']);
+    sketch.strokeWeight(sketch.config['THICKNESS']);
     ls = LineSystem();
     // pos is the horizontal spacing of the 'vertical' lines. They need to be
     // further from eachother at the bottom than att the top to create the
@@ -59,25 +57,25 @@ const script = (sketch) => {
       {x1: 8, x2: 11},
       {x1: 9, x2: 13},
     ];
-    ls.add(Line(0, config['HORIZON'], window.innerWidth, config['HORIZON'], 0, undefined));
+    ls.add(Line(0, sketch.config['HORIZON'], window.innerWidth, sketch.config['HORIZON'], 0, undefined));
 
     pos.forEach(p => {
-      ls.add(Line(p.x1*window.innerWidth/10, config['HORIZON'], p.x2*window.innerWidth/10, window.innerHeight, 0, undefined));
+      ls.add(Line(p.x1*window.innerWidth/10, sketch.config['HORIZON'], p.x2*window.innerWidth/10, window.innerHeight, 0, undefined));
     });
   };
   sketch.draw = () => {
 
-    sketch.background(config['BG']);
+    sketch.background(sketch.config['BG']);
 
     const frame = sketch.frameCount;
     if(frame % 30 === 0){ // Add a new horizontal line every 30 frames
-      ls.add(Line(0, config['HORIZON'], window.innerWidth, config['HORIZON'], config['SPEED'], 400));
+      ls.add(Line(0, sketch.config['HORIZON'], window.innerWidth, sketch.config['HORIZON'], sketch.config['SPEED'], 400));
     }
     let toDelete;
     ls.lines.forEach((l) => {
       if(l.isDead()){ toDelete = l; }
       l.update();
-      sketch.stroke(config['COLOR']);
+      sketch.stroke(sketch.config['COLOR']);
       sketch.line(l.p1.x, l.p1.y, l.p2.x, l.p2.y);
     });
     var index = ls.lines.indexOf(toDelete);
@@ -86,10 +84,9 @@ const script = (sketch) => {
 
 };
 
-
 const run = (config) => {
-  script.config = config;
-  new P5(script);
+  let sketch = new P5(script);
+  sketch.config = config;
 }
 
 export default run;
