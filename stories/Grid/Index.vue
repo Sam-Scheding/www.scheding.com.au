@@ -39,7 +39,6 @@ export default {
       SPEED: this.speed,
     };
     run(config);
-
   },
 }
 
