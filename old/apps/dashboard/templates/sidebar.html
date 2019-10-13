@@ -1,0 +1,58 @@
+{% load static %}
+
+<div class="sidebar" data-color="purple" data-background-color="black" data-image="{% static '/img/sidebar-2.jpg' %}">
+  <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+    Tip 2: you can also add an image using data-image tag
+-->
+  <div class="logo">
+    <a href="{% url 'home' %}" class="simple-text logo-normal">
+      JAM
+    </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li id="dashboard" class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:dashboard:dashboard' %}">
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li id="profile" class="nav-item ">
+        <a class="nav-link" href="{% url 'accounts:dashboard:profile' %}">
+          <i class="material-icons">person</i>
+          <p>User Profile</p>
+        </a>
+      </li>
+      <li id="blog" class="nav-item ">
+        <a class="nav-link" href="{% url 'accounts:dashboard:blog_admin:create_article' %}">
+          <i class="material-icons">library_books</i>
+          <p>Blog</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="./icons.html">
+          <i class="material-icons">bubble_chart</i>
+          <p>Icons</p>
+        </a>
+      </li>
+      <li id="notifications" class="nav-item">
+        <a class="nav-link" href="./notifications.html">
+          <i class="material-icons">notifications</i>
+          <p>Notifications</p>
+        </a>
+      </li>
+      <script type="text/javascript">
+        var active_tab = document.getElementById("{{ view.active_tab }}");
+        active_tab.classList.add("active");
+      </script>
+      <!-- <li class="nav-item active-pro ">
+            <a class="nav-link" href="./upgrade.html">
+                <i class="material-icons">unarchive</i>
+                <p>Upgrade to PRO</p>
+            </a>
+        </li> -->
+    </ul>
+  </div>
+</div>

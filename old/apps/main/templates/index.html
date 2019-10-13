@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sam Scheding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://unpkg.com/nes.css@2.0.0/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+    <script async src="{% static 'js/dialog-polyfill.js' %}"></script>
+    <link async rel="stylesheet" type="text/css" href="{% static 'css/dialog-polyfill.css' %}" />
+
+  </head>
+
+  <body>
+
+      <nav style="padding: 10px;" class="nes-container is-dark">
+
+        <a class="nes-btn is-success" target="_blank" href="http://www.jamlab.xyz/">Blog</a>
+        <a class="nes-btn is-success" target="_blank" href="https://github.com/Sam-Scheding/">GitHub</a>
+        <a class="nes-btn is-success" target="_blank" href="https://www.linkedin.com/in/samscheding/">LinkedIn</a>
+        <a class="nes-btn is-success" href="{% url 'accounts:login' %}">Login</a>
+      </nav>
+    <br>
+    <div class="row">
+      <div class="col-md-9">
+        <main class="nes-container is-dark">
+            <p class="nes-badge is-icon">
+              <span class="is-warning">
+                  <i class="nes-icon star is-small"></i>
+              </span>
+              <span style="width: 150px;" class="is-primary">Projects</span>
+            </p>
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <a target="_blank" href="http://www.jamlab.xyz/">
+                  <div class="nes-container is-dark with-title">
+                    <p class="title">JamBlog</p>
+                    <p>A collaborative blogging project with Jae, where we describe the process of various indivdual and collaborative projects.</p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-sm-6">
+                <a target="_blank" href="http://www.centennialparkschool.nsw.edu.au/">
+                  <div class="nes-container is-dark with-title">
+                    <p class="title">Centennial Park School</p>
+                    <p>Django + BootStrap website with a fully featured administration panel for tracking student attendance, behaviour, etc.</p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-sm-6">
+                <a target="_blank" href="https://github.com/Sam-Scheding/building-occupancy-visualisation/">
+                  <div class="nes-container is-dark with-title">
+                    <p class="title">Population Density Estimator</p>
+                    <p>A research topic and implementation of a population density estimator.
+                    The system consists of a mesh network running on Raspberry Pi computers and visualisations written in JS on a Django webserver.</p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-sm-6">
+                <a target="_blank" href="https://github.com/Sam-Scheding/building-occupancy-visualisation/">
+                  <div class="nes-container is-dark with-title">
+                    <p class="title">K-Torrent</p>
+                    <p>A graphical P2P Filesharing application written in Python with lib-torrent and PyQT5.</p>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p class="nes-badge is-icon">
+                  <span class="is-warning">
+                      <i class="nes-icon star is-small"></i>
+                  </span>
+                  <span class="is-primary">Skills</span>
+                </p>
+
+                <div class="lists">
+                  <ul class="nes-list is-circle">
+                    <li>Programming</li>
+                    <li>Back End Web Development</li>
+                    <li>Front End Web Development</li>
+                    <li>Algorithmic thinking</li>
+                    <li>Once I beat up a volcano</li>
+                    <li>Teamwork</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <p class="nes-badge is-icon">
+                  <span class="is-warning">
+                      <i class="nes-icon star is-small"></i>
+                  </span>
+                  <span style="width: 250px;" class="is-primary">Libraries/Frameworks</span>
+                </p>
+                <div class="lists">
+                  <ul class="nes-list is-disc">
+                    <li>Django</li>
+                    <li>Django REST Framework</li>
+                    <li>Flask</li>
+                    <li>ReactJS</li>
+                    <li>BootStrap</li>
+                    <li>P5.js</li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+
+                <p class="nes-badge is-icon">
+                  <span class="is-warning">
+                      <i class="nes-icon star is-small"></i>
+                  </span>
+                  <span style="width: 120px;" class="is-primary">Languages</span>
+                </p>
+
+                <div class="lists">
+                  <ul class="nes-list is-disc">
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>Java</li>
+                    <li>C</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </main>
+      </div>
+      <div  id="sound-options" class="col-md-3">
+        <div class="nes-container is-dark" style="padding: 10px 0px 10px 20px;">
+          <img style="width: 40px;" src="{{MEDIA_URL}}icons/volume.png" alt="volume">
+          <a id="playButton">
+            Pause Music
+          </a>
+        </div>
+      </div>
+      <div id="bio" class="col-md-3">
+        <div class="nes-container is-dark with-title">
+          <p class="title">Sam Scheding</p>
+          <img id="avatar" src="{{ MEDIA_URL }}icons/avatar.png" alt="avatar">
+          <br>
+          <br>
+          <p>Web Developer</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+      var player;
+      //https://www.youtube.com/watch?v=jadxTFqyhRM
+      function onYouTubeIframeAPIReady() {
+          player = new YT.Player('video-placeholder', {
+              width: 600,
+              height: 400,
+
+              videoId: 'jadxTFqyhRM',
+              playerVars: {
+                  color: 'white',
+                  playlist: 'taJ60kskkns,FG0fTKAqZ5g'
+              },
+              events: {
+                  onStateChange: onPlayerStateChange
+              }
+          });
+      }
+
+      function play(){
+          player.playVideo();
+      }
+      // 5. The API calls this function when the player's state changes.
+      function onPlayerStateChange(event) {
+
+        // If the video is PLAYING, set the onclick element for pause the video.
+        // Once the "playButton" is clicked, the video will be paused.
+        if (event.data == YT.PlayerState.PLAYING) {
+          document.getElementById('playButton').innerHTML = 'Pause Music';
+          // Set the onclick event to the button for pause the YouTube video.
+          document.getElementById('playButton').onclick = function() {
+            player.pauseVideo();
+          };
+        }
+
+        // If the video is PAUSED, set the onclick element for pause the video.
+        // Once the "playButton" is clicked, the video will resume the video = continue playing the video.
+        if (event.data == YT.PlayerState.PAUSED) {
+          document.getElementById('playButton').innerHTML = 'Play Music';
+          document.getElementById('playButton').onclick = function() {
+            player.playVideo();
+          };
+        }
+      }
+
+    </script>
+    <div style="display: none;" id="video-placeholder"></div>
+
+      <dialog class="nes-dialog is-dark" id="dialog-dark">
+        <form method="dialog">
+          <p>Do you want music?</p>
+          <menu class="dialog-menu">
+            <button class="nes-btn is-warning">No</button>
+            <button onclick="play();" class="nes-btn is-primary">Yes</button>
+          </menu>
+        </form>
+      </dialog>
+
+    <script type="text/javascript">
+        window.onload = function() {
+          // dialog polyfill
+          [].forEach.call(document.querySelectorAll('dialog'), function (a) { dialogPolyfill.registerDialog(a); })
+          document.getElementById('dialog-dark').showModal()
+        }
+    </script>
+  </body>
+</html>

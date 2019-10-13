@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      fetch('http://127.0.0.1:8000/events/json')
+      .then(function(response) {
+          return response.json();
+        })
+      .then(function(data) {
+          console.log(data);
+        })
+      .catch(function(err) {
+        console.log(err);
+      });
+    </script>
+    {% for event in view.events %}
+      {{ event.title }} | {{ event.start }}<br>
+    {% endfor %}
+
+    <div class="">
+
+    </div>
+  </body>
+</html>

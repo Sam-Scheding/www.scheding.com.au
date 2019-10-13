@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static "css/cube_login.css" %}">
+
+  </head>
+  <body>
+
+    <form action="{% url 'accounts:login' %}" method="POST" class="form">
+      {% csrf_token %}
+
+      <div class="control">
+        <h1>
+          Sign In
+        </h1>
+      </div>
+      <div class="control block-cube block-input">
+        {{ form.username }}
+        <!-- <input name="username" placeholder="Username" type="text">/  </input> -->
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+      </div>
+      <div class="control block-cube block-input">
+        {{ form.password }}
+        <!-- <input name="password" placeholder="Password" type="password">/  </input> -->
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+      </div>
+      <button class="btn block-cube block-cube-hover" type="submit">
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+        <% # .bg2 %>
+        <div class="text">
+          Log In
+        </div>
+      </button>
+      <div class="credits">
+        {% for error in form.non_field_errors %}
+          {{ error }}<br>
+        {% endfor %}
+
+      </div>
+    </form>
+  <!-- https://codepen.io/marko-zub/pen/mzPeOV -->
+  </body>
+</html>
